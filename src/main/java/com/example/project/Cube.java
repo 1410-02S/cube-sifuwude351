@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Cube {
 
@@ -20,6 +21,14 @@ public class Cube {
             System.out.println();
         }
     } 
+
+	static ArrayList <String> SoulutionStack = new ArrayList<>();
+	static void solution(){
+		for(int i = SoulutionStack.size()-1; i >= 0; i--){
+			System.out.println(SoulutionStack.get(i) + " ");
+			SoulutionStack.remove(i);
+		}
+	}
 
     static String[][] Rubik = {{
         "r","r","r",
@@ -296,7 +305,7 @@ public class Cube {
         boolean proceed = true;
 
         while(proceed){
-            String input;
+			String input;
 
             if(!argsCheck){
                 input = reader.readLine();
@@ -309,57 +318,69 @@ public class Cube {
                     argsRunIndex++;
                 }
             }
-            switch(input){
+            switch(input.toLowerCase()){
                 case "u":
+				SoulutionStack.add("u'");
                 RubiksCube.turnFace(4,"c");
                 RubiksCube.showCube();
                 break;
                 case "d":
+				SoulutionStack.add("d'");
                 RubiksCube.turnFace(5,"c");
                 RubiksCube.showCube();
                 break;
                 case "l":
+				SoulutionStack.add("l'");
                 RubiksCube.turnFace(2,"c");
                 RubiksCube.showCube();
                 break;
                 case "r":
+				SoulutionStack.add("r'");
                 RubiksCube.turnFace(0,"c");
                 RubiksCube.showCube();
                 break;
                 case "f":
+				SoulutionStack.add("f'");
                 RubiksCube.turnFace(1,"c");
                 RubiksCube.showCube();
                 break;
                 case "b":
+				SoulutionStack.add("b'");
                 RubiksCube.turnFace(3,"c");
                 RubiksCube.showCube();
                 break;
                 case "u'":
+				SoulutionStack.add("u");
                 RubiksCube.turnFace(4,"cc");
                 RubiksCube.showCube();
                 break;
                 case "d'":
+				SoulutionStack.add("d");
                 RubiksCube.turnFace(5,"cc");
                 RubiksCube.showCube();
                 break;
                 case "l'":
+				SoulutionStack.add("l");
                 RubiksCube.turnFace(2,"cc");
                 RubiksCube.showCube();
                 break;
                 case "r'":
+				SoulutionStack.add("r");
                 RubiksCube.turnFace(0,"cc");
                 RubiksCube.showCube();
                 break;
                 case "f'":
+				SoulutionStack.add("f");
                 RubiksCube.turnFace(1,"cc");
                 RubiksCube.showCube();
                 break;
                 case "b'":
+				SoulutionStack.add("b");
                 RubiksCube.turnFace(3,"cc");
                 RubiksCube.showCube();
                 break;
                 case "s":
-				
+				solution();
                 break;
                 case "q":
                 proceed = false;
