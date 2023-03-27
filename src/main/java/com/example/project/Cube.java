@@ -5,6 +5,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//Looks preey complete to me, could use some thought for the users sake though.
+
 public class Cube {
 
     public void showCube(){
